@@ -1,0 +1,4 @@
+email,username,password, is_logged_in
+nicataxundzada@gmail.com,nijat,1234, False
+alper@example.com,alper,124, False
+fazil,123,fazil@example.com, False
