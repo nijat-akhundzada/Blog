@@ -69,8 +69,11 @@ elif option == 4:
         print('Author:',blog['created_by'])
 
 
-elif option== 5:
+elif option == 5:
     ''' Create a blog '''
     created_blog = blog.create(email)
 
     print(f'Blog "{blog.title}" was created')
+
+elif option == 6:
+    ''' Update a blog '''

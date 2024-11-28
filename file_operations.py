@@ -27,6 +27,20 @@ def list_blogs(file_name:str)->list[dict]:
 
         return blogs
     
+def update_blog(file_name:str, new_blog:dict, fieldnames:list)->None:
+    ''' Remove previous version of file and update entire file. '''
+    blogs = list_blogs('blogs.csv')
+
+    for i in  range(len(blogs)):
+        if blogs[i].title == new_blog.title and blogs[i].created_by == new_blog.created_by:
+            blogs[i] = new_blog
+
+    with open(file_name) as file_object:
+        csv_writer = csv.DictWriter(file_object, fieldnames=fieldnames)
+
+        csv_writer.writerows(blogs)
+
+    
 def read_blog(file_name:str, title:str, created_by:str)->dict:
     ''' Read a blog '''
     with open(file_name) as file_object:
