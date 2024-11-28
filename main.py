@@ -1,8 +1,9 @@
 import auth
+import blog
 import file_operations
 
-
 users = file_operations.read_users('users.csv')
+email=None
 
 # Sign in/ Log in
 options = '''1. Sign in
@@ -15,7 +16,6 @@ options = '''1. Sign in
 '''
 print(options)
 option = int(input('Option: '))
-
 if option == 1:
     ''' Sig in '''
     email = auth.create_user(users)
@@ -28,7 +28,7 @@ if option == 1:
     }
 
     file_operations.write('users.csv', data, fieldnames=data.keys())
-    
+
 elif option == 2:
     ''' Log in '''
     email = input('Enter your email: ')
@@ -68,3 +68,9 @@ elif option == 4:
         print(blog['content'])
         print('Author:',blog['created_by'])
 
+
+elif option== 5:
+    ''' Create a blog '''
+    created_blog = blog.create(email)
+
+    print(f'Blog "{blog.title}" was created')
